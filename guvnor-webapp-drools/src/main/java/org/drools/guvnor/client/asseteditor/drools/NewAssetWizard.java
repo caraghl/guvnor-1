@@ -30,7 +30,6 @@ import org.drools.guvnor.client.explorer.RefreshModuleEditorEvent;
 import org.drools.guvnor.client.explorer.RefreshSuggestionCompletionEngineEvent;
 import org.drools.guvnor.client.messages.Constants;
 import org.drools.guvnor.client.moduleeditor.drools.SuggestionCompletionCache;
-import org.drools.guvnor.client.resources.DroolsGuvnorImageResources;
 import org.drools.guvnor.client.resources.DroolsGuvnorImages;
 import org.drools.guvnor.client.rpc.NewAssetConfiguration;
 import org.drools.guvnor.client.rpc.NewGuidedDecisionTableAssetConfiguration;
@@ -402,7 +401,7 @@ public class NewAssetWizard extends FormStylePopup {
                                                                                                                 format,
                                                                                                                 content );
                 final NewAssetWizardContext context = new NewGuidedDecisionTableAssetWizardContext( config );
-                clientFactory.getPlaceController().goTo( new WizardPlace<NewAssetWizardContext>( context ) );
+                clientFactory.getDeprecatedPlaceController().goTo( new WizardPlace<NewAssetWizardContext>( context ) );
             }
         };
 
@@ -591,7 +590,7 @@ public class NewAssetWizard extends FormStylePopup {
      * @param uuid
      */
     protected void openEditor(String uuid) {
-        clientFactory.getPlaceController().goTo( new AssetEditorPlace( uuid ) );
+        clientFactory.getDeprecatedPlaceController().goTo( new AssetEditorPlace( uuid ) );
     }
 
 }
