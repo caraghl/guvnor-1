@@ -17,7 +17,6 @@ package org.drools.guvnor.client.widgets.drools.toolbar;
 
 import java.util.Set;
 
-import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.*;
 import org.drools.guvnor.client.asseteditor.BusinessProcessEditor;
 import org.drools.guvnor.client.asseteditor.RefreshAssetEditorEvent;
@@ -744,6 +743,6 @@ public class AssetEditorActionToolbar extends Composite {
                                   String newAssetUUID) {
         Window.alert( Constants.INSTANCE.CreatedANewItemSuccess( name,
                 pkg ) );
-        clientFactory.getPlaceController().goTo( new AssetEditorPlace( newAssetUUID ) );
+        clientFactory.getDeprecatedPlaceController().goTo( new AssetEditorPlace( newAssetUUID ) );
     }    
 }
