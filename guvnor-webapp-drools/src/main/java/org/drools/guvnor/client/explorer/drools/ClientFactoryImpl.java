@@ -39,9 +39,6 @@ public class ClientFactoryImpl extends AbstractClientFactoryImpl {
     PlaceManager placeManager;
 
     @Inject
-    PlaceManager placeManager;
-
-    @Inject
     public ClientFactoryImpl(GuvnorEventBus eventBus) {
         super(eventBus);
     }
