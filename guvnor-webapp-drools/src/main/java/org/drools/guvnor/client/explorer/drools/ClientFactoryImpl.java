@@ -16,19 +16,19 @@
 
 package org.drools.guvnor.client.explorer.drools;
 
+import com.google.gwt.core.client.GWT;
 import org.drools.guvnor.client.GuvnorEventBus;
+import org.drools.guvnor.client.asseteditor.RefreshAssetEditorEvent;
 import org.drools.guvnor.client.explorer.AbstractClientFactoryImpl;
 import org.drools.guvnor.client.explorer.GuvnorActivityMapper;
 import org.drools.guvnor.client.explorer.GuvnorPlaceHistoryMapper;
-
 import org.drools.guvnor.client.widgets.drools.wizards.WizardFactoryImpl;
 import org.drools.guvnor.client.widgets.wizards.WizardFactory;
-
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.EventBus;
 import org.uberfire.client.mvp.PlaceManager;
+import org.uberfire.client.workbench.widgets.events.NotificationEvent;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 @ApplicationScoped
@@ -75,6 +75,16 @@ public class ClientFactoryImpl extends AbstractClientFactoryImpl {
                                                    eventBus );
         }
         return wizardFactory;
+    }
+
+    @Override
+    public Event<RefreshAssetEditorEvent> getRefreshAssetEditorEvents() {
+        return refreshAssetEditorEvents;
+    }
+
+    @Override
+    public Event<NotificationEvent> getNotificationEvents() {
+        return notifications;
     }
 
 }
