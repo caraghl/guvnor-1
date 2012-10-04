@@ -33,16 +33,16 @@ import javax.inject.Inject;
 
 @ApplicationScoped
 public class ClientFactoryImpl extends AbstractClientFactoryImpl {
-    private WizardFactory wizardFactory;
+    private WizardFactory             wizardFactory;
 
     @Inject
     PlaceManager placeManager;
 
     @Inject
-    private Event<RefreshAssetEditorEvent> refreshAssetEditorEvents;
+    Event<RefreshAssetEditorEvent> refreshAssetEditorEvents;
 
     @Inject
-    private Event<NotificationEvent> notifications;
+    Event<NotificationEvent> notifications;
 
     @Inject
     public ClientFactoryImpl(GuvnorEventBus eventBus) {
@@ -62,20 +62,20 @@ public class ClientFactoryImpl extends AbstractClientFactoryImpl {
       * We will revisit this code to decide which way is better later.
       */
     public GuvnorActivityMapper getActivityMapper() {
-        return new GuvnorDroolsActivityMapper(this);
-    }
+        return new GuvnorDroolsActivityMapper( this );
+    }    
 
     public GuvnorPlaceHistoryMapper getPlaceHistoryMapper() {
-        if (guvnorPlaceHistoryMapper == null) {
-            guvnorPlaceHistoryMapper = GWT.create(GuvnorDroolsPlaceHistoryMapper.class);
+        if ( guvnorPlaceHistoryMapper == null ) {
+            guvnorPlaceHistoryMapper = GWT.create( GuvnorDroolsPlaceHistoryMapper.class );
         }
         return guvnorPlaceHistoryMapper;
     }
-
+    
     public WizardFactory getWizardFactory() {
-        if (wizardFactory == null) {
-            wizardFactory = new WizardFactoryImpl(this,
-                    eventBus);
+        if ( wizardFactory == null ) {
+            wizardFactory = new WizardFactoryImpl( this,
+                                                   eventBus );
         }
         return wizardFactory;
     }
