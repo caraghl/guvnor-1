@@ -523,13 +523,13 @@ public class AssetEditorActionToolbar extends Composite {
 
                         //showInfoMessage( constants.SavedOK() );
 
-                        eventBus.fireEvent( new RefreshAssetEditorEvent(asset.getMetaData().getModuleName(), uuid ) );
+                        clientFactory.fireRefreshAssetEditorEvent( new RefreshAssetEditorEvent(asset.getMetaData().getModuleName(), uuid ) );
                         
                         if ( editor instanceof SaveEventListener ) {
                             ((SaveEventListener) editor).onAfterSave();
                         }
-                        
-                        eventBus.fireEvent(new RefreshModuleEditorEvent(asset.getMetaData().getModuleUUID()));
+
+                        clientFactory.fireRefreshModuleEditorEvent(new RefreshModuleEditorEvent(asset.getMetaData().getModuleUUID()));
                        
                         if ( afterCheckinEvent != null ) {
                             afterCheckinEvent.execute();
