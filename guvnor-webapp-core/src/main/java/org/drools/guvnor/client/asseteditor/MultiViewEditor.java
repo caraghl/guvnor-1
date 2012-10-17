@@ -28,7 +28,6 @@ import org.drools.guvnor.client.common.ErrorPopup;
 import org.drools.guvnor.client.common.GenericCallback;
 import org.drools.guvnor.client.common.LoadingPopup;
 import org.drools.guvnor.client.explorer.ClientFactory;
-import org.drools.guvnor.client.explorer.MultiAssetPlace;
 import org.drools.guvnor.client.explorer.RefreshModuleDataModelEvent;
 import org.drools.guvnor.client.explorer.RefreshModuleEditorEvent;
 import org.drools.guvnor.client.explorer.RefreshSuggestionCompletionEngineEvent;
@@ -340,7 +339,7 @@ public class MultiViewEditor extends GuvnorEditor {
         }
     }
     public void close() {
-        eventBus.fireEvent(new ClosePlaceEvent(new MultiAssetPlace(rows)));
+//        eventBus.fireEvent(new ClosePlaceEvent(new MultiAssetPlace(rows)));
         if ( closeCommand != null ) {
             closeCommand.execute();
         }
