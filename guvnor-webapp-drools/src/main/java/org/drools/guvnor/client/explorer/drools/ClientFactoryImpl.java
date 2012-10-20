@@ -26,6 +26,7 @@ import org.drools.guvnor.client.widgets.wizards.WizardContext;
 import org.drools.guvnor.client.widgets.wizards.WizardFactory;
 import org.uberfire.client.mvp.PlaceManager;
 import org.uberfire.client.workbench.widgets.events.NotificationEvent;
+import org.uberfire.security.Identity;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
@@ -33,7 +34,9 @@ import javax.inject.Inject;
 import java.util.Map;
 
 @ApplicationScoped
-public class ClientFactoryImpl extends AbstractClientFactoryImpl {
+public class ClientFactoryImpl
+        extends AbstractClientFactoryImpl {
+
     private WizardFactory wizardFactory;
 
     @Inject
@@ -44,6 +47,9 @@ public class ClientFactoryImpl extends AbstractClientFactoryImpl {
 
     @Inject
     Event<NotificationEvent> notifications;
+
+    @Inject
+    Identity identity;
 
     @Inject
     public ClientFactoryImpl(GuvnorEventBus eventBus) {
@@ -96,6 +102,11 @@ public class ClientFactoryImpl extends AbstractClientFactoryImpl {
                 }
             };
         }
+    }
+
+    @Override
+    public Identity getIdentity() {
+        return identity;
     }
 
 }
